@@ -1,0 +1,57 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Upload Images
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+   
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyyaml
+        pip install mdutils
+        pip install pillow
+        pip install PyMuPDF
+        pip install selenium
+        
+   
+        
+    - name: Run app!
+      run: python script_sele.py
+    
+    - name: Git config
+    
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "<>"
+        
+    - name: Git status
+      run: git status
+      
+    - name: Commit and push
+      run: |
+            DATE="$(date  --date="today" --rfc-3339=date)"
+            git add -A && git commit -m "Updated $DATE" && git push origin main
