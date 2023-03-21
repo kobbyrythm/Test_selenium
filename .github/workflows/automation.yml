@@ -36,9 +36,9 @@ jobs:
       chromedriver-version:
       description: 'The chromedriver version to install'
       required: false
-    runs:
-      using: 'node16'
-      main: 'lib/setup-chromedriver.js'
+    # runs:
+    #   using: 'node16'
+    #   main: 'lib/setup-chromedriver.js'
 
         
    
