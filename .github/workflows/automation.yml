@@ -41,14 +41,6 @@ jobs:
       main: 'lib/setup-chromedriver.js'
 
         
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install selenium
-        sudo apt-get -yqq install chromium-chromedriver
-
-
-        
    
         
     - name: Run app!
