@@ -5,7 +5,7 @@ import time
 
 chrome_options = Options()
 chrome_options.add_argument('--no-sandbox')
-driver = webdriver.Chrome(executable_path='./chromedriver', chrome_options=chrome_options)
+driver = webdriver.Chrome("/usr/bin/chromedriver", options=options)
 driver.get("https://readcoop.eu/model/print-multi-language-danish-dutch-german-finnish-french-latin-swedish/")
 time.sleep(20)
     
